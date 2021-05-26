@@ -86,6 +86,80 @@ class edinet_elica:
         content = self.agent.driver.find_elements(By.XPATH, "//body")[0]
         return content
 
+    def scrtutinize_contetnt_in_detail_bytext(self,content):
+        progress_reports = content.find_elements(By.XPATH, "//*[contains(text(), '報告月における取得自己株式')]")
+        content_result = {}
+        for type_no in  range(len(progress_reports)):
+            # Expected: 株主総会決議による取得の状況】 and 【取締役会決議による取得の状況】
+            content_result[type_no] = None
+
+            #find table obj ( it is parent obj)
+            parent_report_table =progress_reports[type_no]
+            cannot_find_record_tr =False
+            while parent_report_table.tag_name != 'tr':
+                try:
+                    # If html tag, error
+                    parent_report_table = parent_report_table.find_element_by_xpath('..')
+                except:
+                    cannot_find_record_tr = True
+                    break
+            if cannot_find_record_tr:
+                break
+
+            # Search base on upper level tr
+            parent_report_table = parent_report_table.find_element_by_xpath('..')
+            report_rows = parent_report_table.find_elements_by_tag_name('tr')
+            report_result = {'daily':[],'total':None}
+            logging.info("Find {0} rows. Look up rows".format(len(report_rows)))
+
+            # replace text
+            table_strs = parent_report_table.text.replace(",","").replace(" ","").split("\n")
+            table_strs = [ _str  for _str in [re.sub(bar_pattern,"",_str) for _str in table_strs] if _str != ""]
+            logging.info(table_strs)
+            try:
+                sum_idx = table_strs.index("計")
+                report_rows=table_strs[[ _i  for _i, _str in enumerate(table_strs) if '報告月における取得自己株式' in _str ][0]+1:sum_idx]
+                for _i in range(0,len(report_rows),3):
+                    date_col_txt =  report_rows[_i]
+                    if "月" in date_col_txt:
+                        if "日" in date_col_txt:
+                            if  re.match(bar_pattern, date_col_txt) is None and re.sub(void_dt_pattern, '', date_col_txt) != '':
+                                try:
+                                    month = str(int(date_col_txt.split('月')[0])).zfill(2)
+                                    day = str(int(date_col_txt.split('月')[1].split('日')[0])).zfill(2)
+                                    dt = month+day
+                                    qty = int(report_rows[_i+1].replace(',', ''))
+                                    value = int(report_rows[_i+2].replace(',', ''))
+                                    if qty is not None:
+                                        report_result['daily'].append({'date':dt,'qty':qty,'value':value})
+                                        logging.info("Data: {0}".format(report_result['daily'][-1]))
+                                    else:
+                                        logging.info("Data: No data")
+                                except:
+                                    logging.warning("No Daily")
+
+                # sum
+                qty_col_txt = table_strs[sum_idx+1]
+                if  re.match(bar_pattern, qty_col_txt) is None:
+                    try:
+                        sum_qty = int(qty_col_txt.replace(',', ''))
+                        sum_value = int(table_strs[sum_idx+2].replace(',', ''))
+                        if sum_qty is not None:
+                            report_result['total'] = {'qty':sum_qty,'value':sum_value}
+                            logging.info("Sum : {0}".format(report_result['total']))
+                        else:
+                            logging.info("Sum: No data")
+                    except Exception as e:
+                        logging.warning("No Daily")
+                
+
+                report_result['daily_total'] = len(report_result['daily'])
+                content_result[type_no] = report_result
+                logging.info("Daily report: {0} rows are fetched.".format(len(report_result['daily'])))
+            except Exception as e:
+                logging.warning("No 計")
+        return content_result
+
     def scrtutinize_contetnt_in_detail(self,content):
         progress_reports = content.find_elements(By.XPATH, "//*[contains(text(), '報告月における取得自己株式')]")
         content_result = {}
@@ -108,14 +182,14 @@ class edinet_elica:
 
             # Search base on upper level tr
             parent_report_table = parent_report_table.find_element_by_xpath('..')
-            report_rows = parent_report_table.find_elements_by_xpath('tr')
+            report_rows = parent_report_table.find_elements_by_tag_name('tr')
             report_result = {'daily':[],'total':None}
             logging.info("Find {0} rows. Look up rows".format(len(report_rows)))
             for i_report_row in range(len(report_rows)):
                 report_row = report_rows[i_report_row]
                 qty, value = None, None
                 sum_qty, sum_value = None, None
-                report_cols = report_row.find_elements_by_xpath('td')
+                report_cols = report_row.find_elements_by_tag_name('td')
 
                 if "日現在" in report_cols[0].text:
                     continue
@@ -231,9 +305,11 @@ class edinet_elica:
     def fetch_detail(self,url):
         self.agent.to_page(url)
         time.sleep(2)
+        detail_result = {}
         try:
             content=self.to_content_in_detail()
-            detail_result = self.scrtutinize_contetnt_in_detail(content)
+            # detail_result = self.scrtutinize_contetnt_in_detail(content)
+            detail_result = self.scrtutinize_contetnt_in_detail_bytext(content)
         except Exception as e :
             logging.warning("Detail screen error(L3): {0}".format(e),exc_info=True)
         finally:
@@ -257,37 +333,49 @@ class edinet_elica:
             success_cnt,total_cnt=0,0
             for _key in detail_results.keys():
                 _result = detail_results[_key]
-                if "daily" in _result.keys():
-                    daily_results = _result['daily']
-                    for _result in daily_results:
-                        try:
-                            total_cnt+=1
-                            insert_data = {}
-                            insert_data['report_id'] = _idx
-                            buybuck_date=int(_result['date'])
-                            if buybuck_date < submit_mmdd:
-                                insert_data['date'] = buybuck_date+submit_y*10000
-                            else:
-                                insert_data['date'] = buybuck_date+(submit_y-1)*10000
-                            insert_data['date'] = dt.strptime(str(insert_data['date']),'%Y%m%d').strftime('%Y-%m-%d')
-                            insert_data['amount'] = _result['qty']
-                            insert_data['value'] = _result['value']
-                            self.db_obj.insert_detail_result(insert_data)
-                            success_cnt+=1
-                        except Exception as e:
-                            logging.warning("[Failure] Cannot transact. Code={0}:{1}".format(submit_code,e),exc_info=True)
-                    logging.info("[DONE] Inserted Daily EdinetCode={0}, Date={1}, {2}/{3}".format(submit_code,submit_date,success_cnt,total_cnt ))
+                try:
+                    if _result is None:
+                        # No Table
+                        continue
+                    if "daily" in _result.keys():
+                        daily_results = _result['daily']
+                        for _result in daily_results:
+                            try:
+                                total_cnt+=1
+                                insert_data = {}
+                                insert_data['report_id'] = _idx
+                                buybuck_date=int(_result['date'])
+                                if buybuck_date < submit_mmdd:
+                                    insert_data['date'] = buybuck_date+submit_y*10000
+                                else:
+                                    insert_data['date'] = buybuck_date+(submit_y-1)*10000
+                                insert_data['date'] = dt.strptime(str(insert_data['date']),'%Y%m%d').strftime('%Y-%m-%d')
+                                insert_data['amount'] = _result['qty']
+                                insert_data['value'] = _result['value']
+                                self.db_obj.insert_detail_result(insert_data)
+                                success_cnt+=1
+                            except Exception as e:
+                                logging.warning("[Failure] Cannot transact. Code={0}:{1}".format(submit_code,e),exc_info=True)
+                        logging.info("[DONE] Inserted Daily EdinetCode={0}, Date={1}, {2}/{3}".format(submit_code,submit_date,success_cnt,total_cnt ))
 
-                update_data = {}
-                update_data_cond= {'report_id' : _idx }     
-                if "sum" in _result.keys():
-                    sum_results = _result['sum']
-                else:
-                    sum_results = None
-                    update_data['sum_value'] = int(sum_results['sum_value']) if sum_results is not None else 0 
-                    update_data['sum_amount'] = int(sum_results['sum_qty'])if sum_results is not None else 0 
+                    update_data = {}
+                    update_data_cond= {'report_id' : _idx }  
+                    logging.info(detail_results)   
+                    #todo: want to be better
+                    if "total" in detail_results[0].keys():
+                        sum_results = detail_results[0]['total']
+                    else:
+                        sum_results = None
+                    update_data['sum_value'] = int(sum_results['value']) if sum_results is not None else 0 
+                    update_data['sum_amount'] = int(sum_results['qty'])if sum_results is not None else 0 
                     update_data['sum_count'] = total_cnt if sum_results is not None else 0 
-                self.db_obj.update_search_result_sum(update_data,update_data_cond)
+                    logging.info("[DONE] Inserted Sum ID={0},EdinetCode={1}, Date={2}, Val={3}, Amount={4}, Cnt={5}".format(_idx,submit_code,submit_date,update_data['sum_value'],update_data['sum_amount'] ,update_data['sum_count']  ))
+                    self.db_obj.update_search_result_sum(update_data,update_data_cond)
+                except Exception as e:
+                    logging.warning("[Failure] Maybe more visible table.:{0}".format(e))
+
+
+                
 
 
 

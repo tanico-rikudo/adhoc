@@ -14,13 +14,13 @@ class edinetDB:
 			db=self.util.config.get('DB'),
 			cursorclass=pymysql.cursors.DictCursor
 		)
-		logging.info("[DONE]Get connection")
+		# logging.info("[DONE]Get connection")
 		return conn
 	
 	def close_connection(self,conn):
 		try:
 			conn.close()
-			logging.info("[DONE]Close connection")
+			# logging.info("[DONE]Close connection")
 		except Exception as e:
 			logging.warning("[Failure] connection. Cannot find conn:{0}".format(e))
 			
@@ -33,7 +33,7 @@ class edinetDB:
 			with conn.cursor() as cursor:
 				cursor.execute(sql)
 				result = cursor.fetchall()
-				logging.info("[DONE]Select")
+				# logging.info("[DONE]Select")
 		except Exception as e:
 			logging.warning("[Failure] connection. Cannot find conn:{0}".format(e))
 		finally:
@@ -49,7 +49,7 @@ class edinetDB:
 			with conn.cursor() as cursor:
 				cursor.execute(sql, tuple(data.values()))
 			conn.commit()
-			logging.info("[DONE]Insert")
+			# logging.info("[DONE]Insert")
 		except Exception as e:
 			logging.warning("[Failure] connection. Cannot find conn:{0}".format(e))
 		finally:
@@ -59,17 +59,17 @@ class edinetDB:
 		conn = self.get_connection()
 		try:
 			_vs = []
-			sql = 'UPDATE  {0}  SET ('.format(table)
+			sql = 'UPDATE  {0}  SET '.format(table)
 			for _i , (_k,_v) in enumerate(data.items()):
 				if _i > 0:
 					sql += ', '
 				sql += '`{0}`=%s '.format(_k )
 				_vs.append(_v)
-			sql += ') where REPORT_ID={0}'.format(cond['REPORT_ID'])
+			sql += ' where REPORT_ID={0}'.format(cond['REPORT_ID'])
 			with conn.cursor() as cursor:
 				cursor.execute(sql, tuple(_vs))
 			conn.commit()
-			logging.info("[DONE]UPDATE")
+			# logging.info("[DONE]UPDATE")
 		except Exception as e:
 			logging.warning("[Failure] connection. Cannot find conn:{0},{1}".format(e,sql,tuple(_vs)),exc_info=True)
 		finally:
@@ -116,7 +116,7 @@ class edinetDBOperator:
 			"UPDATE_DT":dt.now().strftime("%Y-%m-%d %H:%M:%S")
 		}
 		cond = {"REPORT_ID":cond['report_id']}
-		self.dbOp.update('detail_result',data,cond)	 
+		self.dbOp.update('search_result',data,cond)	 
 		  
 
 		
