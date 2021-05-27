@@ -124,6 +124,7 @@ class edinetDBOperator:
 		fetched_rows = []
 		for row in self.dbOp.select('search_result'):
 			row_result = {}
+			row_result['report_id'] = row['REPORT_ID']
 			row_result['submit_date'] = row['SUBMIT_DT']
 			row_result['submit_type'] = row['SUBMIT_TYPE']
 			row_result['edinet_code'] = row['EDINET_CODE']

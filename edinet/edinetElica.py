@@ -22,11 +22,12 @@ class edinet_elica:
         self.db_obj = db_obj
         self.util = UTIL(version=env,service_name=service_name)
         self.util.read_config(config_path)
-        self.search_result_in_db = self.update_search_result()
+        self.search_result_in_db = None
+        self.fetch_search_result_db()
 
-    def update_search_result(self):
+    def fetch_search_result_db(self):
         self.search_result_in_db = self.util.create_dataframe(
-            self.db_obj.get_fetched_search_result_rows(),["submit_date","submit_type","edinet_code","detail_url"] )
+            self.db_obj.get_fetched_search_result_rows(),["report_id","submit_date","submit_type","edinet_code","detail_url"] )
 
     def to_search_results(self,current_page_no=0,go_to_page=1):
         assert go_to_page!=0, "Cannnot move myself"
@@ -89,6 +90,8 @@ class edinet_elica:
     def scrtutinize_contetnt_in_detail_bytext(self,content):
         progress_reports = content.find_elements(By.XPATH, "//*[contains(text(), '報告月における取得自己株式')]")
         content_result = {}
+        if len(progress_reports) == 0:
+            logging.warning("[Skip] No mutch 報告月における取得自己株式 ")
         for type_no in  range(len(progress_reports)):
             # Expected: 株主総会決議による取得の状況】 and 【取締役会決議による取得の状況】
             content_result[type_no] = None
@@ -150,8 +153,9 @@ class edinet_elica:
                         else:
                             logging.info("Sum: No data")
                     except Exception as e:
-                        logging.warning("No Daily")
-                
+                        logging.warning("No Daily sum")
+                else:
+                    report_result['total'] = {'qty':0,'value':0}
 
                 report_result['daily_total'] = len(report_result['daily'])
                 content_result[type_no] = report_result
@@ -163,6 +167,8 @@ class edinet_elica:
     def scrtutinize_contetnt_in_detail(self,content):
         progress_reports = content.find_elements(By.XPATH, "//*[contains(text(), '報告月における取得自己株式')]")
         content_result = {}
+        if len(progress_reports) == 0:
+            logging.warning("[Skip] No mutch 報告月における取得自己株式 ")
         for type_no in  range(len(progress_reports)):
             # Expected: 株主総会決議による取得の状況】 and 【取締役会決議による取得の状況】
             content_result[type_no] = None
@@ -294,13 +300,14 @@ class edinet_elica:
                 self.db_obj.insert_search_result(row_result)
                 page_result.append(row_result)
                 logging.info("Done: {0}-{1}".format(row_result['submit_date'],row_result['edinet_code']))
-
+            
+            logging.info("[DONE] Page={0}".format(page_no))
             try:
                 page_no, n_pages = self.to_search_results(page_no,1)
+                logging.info("Next Page={0}".format(page_no))
             except:
+                logging.info("Finish. Now Page={0}".format(page_no))
                 break
-            # only 1 pafe(tentative)
-            break
 
     def fetch_detail(self,url):
         self.agent.to_page(url)
@@ -322,6 +329,7 @@ class edinet_elica:
     def fetch_detail_form_search(self):
         for _idx in self.search_result_in_db.index:
             _row = self.search_result_in_db.loc[_idx,:]
+            report_id = _row['report_id']
             detail_url = _row['detail_url']
             submit_dt = dt.strptime(str(_row['submit_date']),'%Y-%m-%d %H:%M')
             submit_date = int(submit_dt.strftime('%Y%m%d'))
@@ -343,7 +351,7 @@ class edinet_elica:
                             try:
                                 total_cnt+=1
                                 insert_data = {}
-                                insert_data['report_id'] = _idx
+                                insert_data['report_id'] = report_id
                                 buybuck_date=int(_result['date'])
                                 if buybuck_date < submit_mmdd:
                                     insert_data['date'] = buybuck_date+submit_y*10000
@@ -359,7 +367,7 @@ class edinet_elica:
                         logging.info("[DONE] Inserted Daily EdinetCode={0}, Date={1}, {2}/{3}".format(submit_code,submit_date,success_cnt,total_cnt ))
 
                     update_data = {}
-                    update_data_cond= {'report_id' : _idx }  
+                    update_data_cond= {'report_id' : report_id }  
                     logging.info(detail_results)   
                     #todo: want to be better
                     if "total" in detail_results[0].keys():
@@ -369,7 +377,7 @@ class edinet_elica:
                     update_data['sum_value'] = int(sum_results['value']) if sum_results is not None else 0 
                     update_data['sum_amount'] = int(sum_results['qty'])if sum_results is not None else 0 
                     update_data['sum_count'] = total_cnt if sum_results is not None else 0 
-                    logging.info("[DONE] Inserted Sum ID={0},EdinetCode={1}, Date={2}, Val={3}, Amount={4}, Cnt={5}".format(_idx,submit_code,submit_date,update_data['sum_value'],update_data['sum_amount'] ,update_data['sum_count']  ))
+                    logging.info("[DONE] Inserted Sum ID={0},EdinetCode={1}, Date={2}, Val={3}, Amount={4}, Cnt={5}".format(report_id,submit_code,submit_date,update_data['sum_value'],update_data['sum_amount'] ,update_data['sum_count']  ))
                     self.db_obj.update_search_result_sum(update_data,update_data_cond)
                 except Exception as e:
                     logging.warning("[Failure] Maybe more visible table.:{0}".format(e))
