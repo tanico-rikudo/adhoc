@@ -1,0 +1,389 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.Server/BlazingPizza.Server.csproj": {}
+  },
+  "projects": {
+    "/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingComponents/BlazingComponents.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingComponents/BlazingComponents.csproj",
+        "projectName": "BlazingComponents",
+        "projectPath": "/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingComponents/BlazingComponents.csproj",
+        "packagesPath": "/Users/macico/.nuget/packages/",
+        "outputPath": "/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingComponents/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/macico/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Components": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.AspNetCore.Components.Web": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.401/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.Client/BlazingPizza.Client.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.Client/BlazingPizza.Client.csproj",
+        "projectName": "BlazingPizza.Client",
+        "projectPath": "/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.Client/BlazingPizza.Client.csproj",
+        "packagesPath": "/Users/macico/.nuget/packages/",
+        "outputPath": "/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.Client/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/macico/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingComponents/BlazingComponents.csproj": {
+                "projectPath": "/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingComponents/BlazingComponents.csproj"
+              },
+              "/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.ComponentsLibrary/BlazingPizza.ComponentsLibrary.csproj": {
+                "projectPath": "/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.ComponentsLibrary/BlazingPizza.ComponentsLibrary.csproj"
+              },
+              "/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.Shared/BlazingPizza.Shared.csproj": {
+                "projectPath": "/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.Shared/BlazingPizza.Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Components.WebAssembly": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.AspNetCore.Components.WebAssembly.Authentication": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.AspNetCore.Components.WebAssembly.DevServer": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.Extensions.Http": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "System.Net.Http.Json": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
+              "version": "[7.0.11, 7.0.11]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.401/RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "browser-wasm": {
+          "#import": []
+        }
+      }
+    },
+    "/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.ComponentsLibrary/BlazingPizza.ComponentsLibrary.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.ComponentsLibrary/BlazingPizza.ComponentsLibrary.csproj",
+        "projectName": "BlazingPizza.ComponentsLibrary",
+        "projectPath": "/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.ComponentsLibrary/BlazingPizza.ComponentsLibrary.csproj",
+        "packagesPath": "/Users/macico/.nuget/packages/",
+        "outputPath": "/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.ComponentsLibrary/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/macico/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Components": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.AspNetCore.Components.Web": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.401/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.Server/BlazingPizza.Server.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.Server/BlazingPizza.Server.csproj",
+        "projectName": "BlazingPizza.Server",
+        "projectPath": "/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.Server/BlazingPizza.Server.csproj",
+        "packagesPath": "/Users/macico/.nuget/packages/",
+        "outputPath": "/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.Server/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/macico/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.Client/BlazingPizza.Client.csproj": {
+                "projectPath": "/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.Client/BlazingPizza.Client.csproj"
+              },
+              "/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.Shared/BlazingPizza.Shared.csproj": {
+                "projectPath": "/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.Shared/BlazingPizza.Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.ApiAuthorization.IdentityServer": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.AspNetCore.Components.WebAssembly.Server": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "WebPush": {
+              "target": "Package",
+              "version": "[1.0.11, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.401/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.Shared/BlazingPizza.Shared.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.Shared/BlazingPizza.Shared.csproj",
+        "projectName": "BlazingPizza.Shared",
+        "projectPath": "/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.Shared/BlazingPizza.Shared.csproj",
+        "packagesPath": "/Users/macico/.nuget/packages/",
+        "outputPath": "/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.Shared/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/macico/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.ComponentsLibrary/BlazingPizza.ComponentsLibrary.csproj": {
+                "projectPath": "/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.ComponentsLibrary/BlazingPizza.ComponentsLibrary.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.401/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

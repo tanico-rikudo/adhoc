@@ -1,0 +1,16 @@
+/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.Shared/bin/Debug/net7.0/BlazingPizza.ComponentsLibrary.staticwebassets.runtime.json
+/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.Shared/bin/Debug/net7.0/BlazingPizza.Shared.deps.json
+/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.Shared/bin/Debug/net7.0/BlazingPizza.Shared.dll
+/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.Shared/bin/Debug/net7.0/BlazingPizza.Shared.pdb
+/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.Shared/bin/Debug/net7.0/BlazingPizza.ComponentsLibrary.dll
+/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.Shared/bin/Debug/net7.0/BlazingPizza.ComponentsLibrary.pdb
+/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.Shared/obj/Debug/net7.0/BlazingPizza.Shared.csproj.AssemblyReference.cache
+/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.Shared/obj/Debug/net7.0/BlazingPizza.Shared.GeneratedMSBuildEditorConfig.editorconfig
+/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.Shared/obj/Debug/net7.0/BlazingPizza.Shared.AssemblyInfoInputs.cache
+/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.Shared/obj/Debug/net7.0/BlazingPizza.Shared.AssemblyInfo.cs
+/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.Shared/obj/Debug/net7.0/BlazingPizza.Shared.csproj.CoreCompileInputs.cache
+/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.Shared/obj/Debug/net7.0/BlazingPizza.Shared.csproj.CopyComplete
+/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.Shared/obj/Debug/net7.0/BlazingPizza.Shared.dll
+/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.Shared/obj/Debug/net7.0/refint/BlazingPizza.Shared.dll
+/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.Shared/obj/Debug/net7.0/BlazingPizza.Shared.pdb
+/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.Shared/obj/Debug/net7.0/ref/BlazingPizza.Shared.dll

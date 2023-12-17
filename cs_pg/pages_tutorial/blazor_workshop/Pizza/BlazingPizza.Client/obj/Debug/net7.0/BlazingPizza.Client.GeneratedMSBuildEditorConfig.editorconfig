@@ -1,0 +1,73 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = browser
+build_property.RootNamespace = BlazingPizza.Client
+build_property.RootNamespace = BlazingPizza.Client
+build_property.ProjectDir = /Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.Client/
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = /Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.Client
+build_property._RazorSourceGeneratorDebug = 
+
+[/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.Client/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.Client/Pages/Authentication.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQXV0aGVudGljYXRpb24ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.Client/Pages/Checkout.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ2hlY2tvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.Client/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.Client/Pages/MyOrders.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTXlPcmRlcnMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.Client/Pages/OrderDetail.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvT3JkZXJEZXRhaWwucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.Client/Pages/OrderReview.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvT3JkZXJSZXZpZXcucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.Client/Shared/AddressEditor.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL0FkZHJlc3NFZGl0b3IucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.Client/Shared/ConfiguredPizzaItem.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL0NvbmZpZ3VyZWRQaXp6YUl0ZW0ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.Client/Shared/ConfigurePizzaDialog.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL0NvbmZpZ3VyZVBpenphRGlhbG9nLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.Client/Shared/LoginDisplay.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL0xvZ2luRGlzcGxheS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.Client/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL01haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.Client/Shared/RedirectToLogin.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL1JlZGlyZWN0VG9Mb2dpbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingPizza.Client/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 

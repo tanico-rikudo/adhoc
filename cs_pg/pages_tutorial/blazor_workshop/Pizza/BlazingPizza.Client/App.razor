@@ -1,0 +1,25 @@
+﻿@* // Use authentication state to determine if the user is logged in or not *@
+<CascadingAuthenticationState>
+
+    <Router AppAssembly="typeof(Program).Assembly" Context="routeData">
+        @* found route (page) *@
+        <Found>
+            @* // Use the AuthorizeRouteView to determine if the user is authorized to view the page *@
+            <AuthorizeRouteView RouteData="routeData" DefaultLayout="typeof(MainLayout)">
+                <NotAuthorized>
+                    @* <p>You are not authorized to access this resource.</p> *@
+                    <RedirectToLogin />
+                </NotAuthorized>
+                <Authorizing>
+                    <div class="main">Please wait...</div>
+                </Authorizing>
+            </AuthorizeRouteView>
+        </Found>
+        <NotFound>
+            <LayoutView Layout="typeof(MainLayout)">
+                <div class="main">Sorry, there's nothing at this address.</div>
+            </LayoutView>
+        </NotFound>
+    </Router>
+
+</CascadingAuthenticationState>

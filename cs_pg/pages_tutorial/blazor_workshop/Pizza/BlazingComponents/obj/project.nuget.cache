@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "dgSpecHash": "q7dRwDSR23+azY5N+G4JWS9+1WGz9IsZJKGH6yD8fA1U+Bk/OzuCgTotUBicIpwIaW+UF8dWXuCV4P3N9gCtnA==",
+  "success": true,
+  "projectFilePath": "/Users/macico/Dropbox/apps/cs_pg/pages_tutorial/blazor_workshop/Pizza/BlazingComponents/BlazingComponents.csproj",
+  "expectedPackageFiles": [
+    "/Users/macico/.nuget/packages/microsoft.aspnetcore.authorization/7.0.0/microsoft.aspnetcore.authorization.7.0.0.nupkg.sha512",
+    "/Users/macico/.nuget/packages/microsoft.aspnetcore.components/7.0.0/microsoft.aspnetcore.components.7.0.0.nupkg.sha512",
+    "/Users/macico/.nuget/packages/microsoft.aspnetcore.components.analyzers/7.0.0/microsoft.aspnetcore.components.analyzers.7.0.0.nupkg.sha512",
+    "/Users/macico/.nuget/packages/microsoft.aspnetcore.components.forms/7.0.0/microsoft.aspnetcore.components.forms.7.0.0.nupkg.sha512",
+    "/Users/macico/.nuget/packages/microsoft.aspnetcore.components.web/7.0.0/microsoft.aspnetcore.components.web.7.0.0.nupkg.sha512",
+    "/Users/macico/.nuget/packages/microsoft.aspnetcore.metadata/7.0.0/microsoft.aspnetcore.metadata.7.0.0.nupkg.sha512",
+    "/Users/macico/.nuget/packages/microsoft.extensions.dependencyinjection/7.0.0/microsoft.extensions.dependencyinjection.7.0.0.nupkg.sha512",
+    "/Users/macico/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/7.0.0/microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
+    "/Users/macico/.nuget/packages/microsoft.extensions.logging.abstractions/7.0.0/microsoft.extensions.logging.abstractions.7.0.0.nupkg.sha512",
+    "/Users/macico/.nuget/packages/microsoft.extensions.options/7.0.0/microsoft.extensions.options.7.0.0.nupkg.sha512",
+    "/Users/macico/.nuget/packages/microsoft.extensions.primitives/7.0.0/microsoft.extensions.primitives.7.0.0.nupkg.sha512",
+    "/Users/macico/.nuget/packages/microsoft.jsinterop/7.0.0/microsoft.jsinterop.7.0.0.nupkg.sha512",
+    "/Users/macico/.nuget/packages/system.io.pipelines/7.0.0/system.io.pipelines.7.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
