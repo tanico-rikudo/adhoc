@@ -1,0 +1,60 @@
+version: "3.9"
+services:
+  # py3:
+  #   build:
+  #     context: ./jupyter
+  #     dockerfile: Dockerfile
+  #   restart: always
+  #   entrypoint: >
+  #     jupyter-lab
+  #     --allow-root
+  #     --ip=0.0.0.0
+  #     --port=8888
+  #     --no-browser
+  #     --NotebookApp.token=''
+  #     --notebook-dir=/app
+  #   expose:
+  #     - "8888"
+  #   ports:
+  #     - "127.0.0.1:8888:8888"
+  #   volumes:
+  #     - ./jupyter/root_jupyter:/root/.jupyter
+  #     - ./dash:/app
+
+  # dash:
+  #   build:
+  #     context: ./dash
+  #     dockerfile: Dockerfile
+  #   restart: always
+  #   expose:
+  #     - "8085"
+  #   ports:
+  #     - "127.0.0.1:8085:8085"
+  #   volumes:
+  #     - ./jupyter/root_jupyter:/root/.jupyter
+  #     - ./dash:/app
+
+  dash_test:
+    build:
+      context: ./dash_test
+      dockerfile: Dockerfile
+    restart: always
+    expose:
+      - "8086"
+    ports:
+      - "127.0.0.1:8086:8086"
+    volumes:
+      - ./jupyter/root_jupyter:/root/.jupyter
+      - ./dash_test:/app
+
+
+    # GPUを使う場合の設定
+    # environment:
+    #   - "NVIDIA_VISIBLE_DEVICES=all"
+    #   - "NVIDIA_DRIVER_CAPABILITIES=all"
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - capabilities:
+    #           - gpu

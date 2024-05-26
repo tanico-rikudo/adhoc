@@ -1,0 +1,2 @@
+class InvalidEnvError(Exception):
+    pass
